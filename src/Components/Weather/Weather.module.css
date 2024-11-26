@@ -1,0 +1,41 @@
+.weatherInfoSection {
+	display: flex;
+	gap: 20px;
+	padding: 15px 24px;
+	border-radius: 30px;
+	box-shadow: 10px 10px 4px #000000;
+	background-color: #444444;
+}
+
+.sunnyIcon {
+	width: 200px;
+	height: 200px;
+	align-self: center;
+}
+
+.weatherDetails {
+	margin-left: 30px;
+	grid-template-columns: repeat(2, auto);
+	display: grid;
+	gap: 15px;
+}
+
+.weatherDetails p {
+	display: grid;
+	text-align: center;
+}
+
+.weatherDetails img {
+	justify-self: center;
+}
+
+.temperatureSection {
+	display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.temperatureSection p:first-child{
+	font-size: 80px;
+	font-weight: 400;
+}

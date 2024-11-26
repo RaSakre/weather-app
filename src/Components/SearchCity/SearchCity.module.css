@@ -1,0 +1,29 @@
+.searchWrapper {
+	padding: 10px 0px;
+  max-width: 500px;
+  margin: 0px auto;
+}
+
+.searchForm {
+	display: flex;
+  gap: 15px
+}
+
+.searchForm input {
+	width: 60%;
+	min-height: 50px;
+	background-color: #444444;
+	border-radius: 40px;
+}
+
+.searchForm input::placeholder {
+	font-size: 14px;
+	padding: 0px 10px;
+}
+
+.searchForm button {
+	background-color: #4CBB17;
+	color: white;
+	padding: 15px;
+	border-radius: 30px;
+}
