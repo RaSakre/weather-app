@@ -144,7 +144,7 @@ export const fetchCityWeather = createAsyncThunk(
 export const fetchTimeZone = createAsyncThunk(
 	"weather/fetchTimeZone",
 	async ({lat, lon}:ICoord) => {
-		const response = await axios.get(` http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lon}&username=sakre_e`)
+		const response = await axios.get(`http://api.geonames.org/timezoneJSON?lat=${lat}&lng=${lon}&username=sakre_e`)
 		return response.data
 	}
 )
