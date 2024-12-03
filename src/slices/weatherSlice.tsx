@@ -1,128 +1,26 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { api } from "src/api/api";
-
-interface ICoord {
-	lat: number,
-	lon: number,
-}
-
-interface IWeatherImage {
-	id: number,
-	main: string,
-	description: string,
-	icon: string
-}
+import { defaultCoord, defaultMainWeather, defaultRain, defaultSys, defaultTimezone, defaultWeatherImage, defaultWind, ICoord, IWeatherState } from "../types/sliceTypes";
 
 
-interface IWeather {
-	coord: ICoord,
-	main: {
-		temp: number,
-		feels_like: number,
-		temp_min: number,
-		temp_max: number,
-		pressure: number,
-		humidity: number,
-	},
-	weather: IWeatherImage[],
-	wind: {
-		speed: number,
-		deg: number,
-		gust: number,
-	},
-	sys: {
-		sunrise: number,
-		sunset: number,
-	},
-	rain: {
-		"1h": number
-	},
-	name: string,
-	timezone: number,
-
-	}
-
-interface ITimeZone {
-	sunrise: string,
-	lng: number,
-	countryCode: string,
-	gmtOffset: number,
-	rawOffset: number,
-	sunset: string,
-	timezoneId: string,
-	dstOffset: number,
-	countryName: string,
-	time: string,
-	lat: number
-
-}
-
-interface IWeatherState {
-	weatherInfo: IWeather,
-	city: any,
-	lat: number,
-	lon: number,
-	isLoading: boolean,
-	error: string | null,
-	timezone: ITimeZone
-}
-
-const initialState:IWeatherState = {
-	weatherInfo: {
-		coord: {
-			lat: 0,
-			lon: 0
-		},
-		main: {
-			temp: 0,
-			feels_like: 0,
-			temp_min: 0,
-			temp_max: 0,
-			pressure: 0,
-			humidity: 0
-		},
-		weather: [
-			{
-			id: 0,
-			main: "",
-			description: "",
-			icon: ""
-		},
-	],
-		wind: {
-			speed: 0,
-			deg: 0,
-			gust: 0,
-		},
-		sys: {
-			sunrise: 0,
-			sunset: 0
-		},
-		rain: {
-			"1h": 0
-		},
-		name: '',
-		timezone: 0,
-	},
-	city: [],
-	lat:0,
-	lon:0,
-	isLoading:false,
-	error: null,
-	timezone: {
-		"sunrise": "",
-		"lng": 0,
-		"countryCode": "",
-		"gmtOffset": 0,
-		"rawOffset": 0,
-		"sunset": "",
-		"timezoneId": "",
-		"dstOffset": 0,
-		"countryName": "",
-		"time": "",
-		"lat": 0
-	}
+const initialState: IWeatherState = {
+  weatherInfo: {
+    coord: defaultCoord,
+    main: defaultMainWeather,
+    weather: [defaultWeatherImage],
+    wind: defaultWind,
+    sys: defaultSys,
+    rain: defaultRain,
+    name: '',
+    timezone: 0,
+  },
+  city: [],
+  lat: 0,
+  lon: 0,
+  isLoading: false,
+  error: null,
+  timezone: defaultTimezone,
 };
 
 export const fetchCity = createAsyncThunk(
